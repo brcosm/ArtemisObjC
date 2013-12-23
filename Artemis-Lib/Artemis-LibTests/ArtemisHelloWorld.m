@@ -13,6 +13,24 @@
 
 #import "MovementSystem.h"
 
+@interface TestEntitySystem : ArtemisEntitySystem
+@property (nonatomic, assign) NSInteger addedCallCount;
+@end
+
+@implementation TestEntitySystem
+
++ (instancetype)testSystem
+{
+    return [[self alloc] initWithAspect:[ArtemisAspect aspectForAll:@[Position.class, Velocity.class]]];
+}
+
+- (void)added:(ArtemisEntity *)entity
+{
+    self.addedCallCount++;
+}
+
+@end
+
 @implementation ArtemisHelloWorld
 
 -(void) testCreateEmptyWorld
@@ -66,6 +84,30 @@
 	});
 	
 	[self waitForStatus:kXCTUnitWaitStatusSuccess timeout:4.0];
+}
+
+/**
+ Check added entity count and number of added: messages a system receives
+ */
+- (void) testAddedEntityCountIsCorrect
+{
+    ArtemisWorld *world = [ArtemisWorld new];
+    TestEntitySystem *ts = [TestEntitySystem testSystem];
+    [world setSystem:ts];
+    [world initialize];
+    
+    ArtemisEntity *e = [world createEntity];
+    [e addComponent:[Position positionWithX:0 y:0]];
+    [e addComponent:[Velocity velocityWithDeltaX:0 deltaY:0]];
+    [world addEntity:e];
+    
+    ArtemisBag *addedEntities = [world valueForKey:@"added"];
+    XCTAssertEqual((int)addedEntities.size, 1, @"added entity bag should have a size of 1");
+    XCTAssertEqual((int)ts.addedCallCount, 0, @"added should not be called until the world has been processed");
+    
+    [world performSelector:@selector(process) withObject:nil];
+    XCTAssertEqual((int)addedEntities.size, 0, @"added entity bag should be empty");
+    XCTAssertEqual((int)ts.addedCallCount, 1, @"added should only be called once per added entity");
 }
 
 /**
