@@ -9,9 +9,9 @@
 
 @implementation ArtemisBag
 
-+(ArtemisBag*) bag
++(instancetype) bag
 {
-	ArtemisBag* newValue = [[[ArtemisBag alloc] initWithCapacity:64] autorelease];
+	ArtemisBag* newValue = [[[self alloc] initWithCapacity:64] autorelease];
 	
 	return newValue;
 }
@@ -36,16 +36,16 @@
     return self;
 }
 
--(NSObject*) remove:(NSInteger) index
+-(id) remove:(NSInteger) index
 {
-	NSObject* item = [self.data objectAtIndex:index];
+	id item = [self.data objectAtIndex:index];
 	
 	/** FIXME: not implemented as high performance yet */
 	
 	return item;
 }
 
--(NSObject*) removeLast
+-(id) removeLast
 {
 	if( self.size > 0 )
 	{
@@ -104,9 +104,9 @@
 	return modified;
 }
 
--(NSObject*) get:(NSInteger) index
+-(id) get:(NSInteger) index
 {
-	NSObject* value = [self.data objectAtIndex:index];
+	id value = [self.data objectAtIndex:index];
 	return ( value == [NSNull null]) ? nil : value; /** ObjC: have to convert NSNull to nil */
 }
 
@@ -130,7 +130,7 @@
 	return self.size == 0;
 }
 
--(void) add:(NSObject*) item
+-(void) add:(id) item
 {
 	if( self.size == self.capacity )
 	{
@@ -142,7 +142,7 @@
 }
 
 /** Have to rename for objc */
--(void) setItem:(NSObject*) item atIndex:(int) index
+-(void) setItem:(id) item atIndex:(int) index
 {
 	if( index > self.capacity)
 	{
@@ -167,7 +167,7 @@
 
 -(void) addAll:(ArtemisBag*) otherBag
 {
-	for( NSObject* item in otherBag.data )
+	for( id item in otherBag.data )
 	{
 		if( item != nil && item != [NSNull null] )
 		{

@@ -13,7 +13,7 @@
 @interface ArtemisEntity : NSObject
 
 /** ObjC: doesnt support protected, moved this to static */
-+(ArtemisEntity*) entityInWorld:(ArtemisWorld*) world withId:(int) newID;
++(instancetype) entityInWorld:(ArtemisWorld*) world withId:(int) newID;
 
 @property(nonatomic) int Id; // note: not "id" which is reserved in objc
 

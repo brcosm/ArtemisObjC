@@ -7,9 +7,9 @@
 
 @implementation ArtemisComponentManager
 
-+(ArtemisComponentManager *)componentManager
++(instancetype)componentManager
 {
-	ArtemisComponentManager* newValue = [[ArtemisComponentManager new] autorelease];
+	ArtemisComponentManager* newValue = [[self new] autorelease];
 	
 	return newValue;
 }

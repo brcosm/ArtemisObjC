@@ -10,12 +10,12 @@
 @interface ArtemisBag : NSObject <ArtemisImmutableBag>
 
 
-+(ArtemisBag*) bag;
++(instancetype) bag;
 
 -(id)initWithCapacity:(NSInteger) c;
 
--(NSObject*) remove:(NSInteger) index;
--(NSObject*) removeLast;
+-(id) remove:(NSInteger) index;
+-(id) removeLast;
 /** Have to rename method, Objc doesn't support overloading, it's too basic/weak a language */
 -(BOOL) removeFirst:(id) item;
 
@@ -23,7 +23,7 @@
 
 -(BOOL) removeAll:(ArtemisBag*) otherBag;
 
--(NSObject*) get:(NSInteger) index;
+-(id) get:(NSInteger) index;
 
 @property(nonatomic,readonly) NSInteger size, capacity;
 
@@ -31,10 +31,10 @@
 
 @property(nonatomic,readonly) BOOL isEmpty;
 
--(void) add:(NSObject*) item;
+-(void) add:(id) item;
 
 /** Have to rename for objc */
--(void) setItem:(NSObject*) item atIndex:(int) index;
+-(void) setItem:(id) item atIndex:(int) index;
 
 -(void) ensureCapacity:(NSInteger) index;
 

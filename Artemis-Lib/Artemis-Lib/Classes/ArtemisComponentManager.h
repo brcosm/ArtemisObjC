@@ -11,7 +11,7 @@
 @interface ArtemisComponentManager : ArtemisManager
 
 /** ObjC: for safety, use this instead of relying on default undefined constrcutors */
-+(ArtemisComponentManager*) componentManager;
++(instancetype) componentManager;
 
 -(void) addComponent:(ArtemisComponent*) component ofType:(ArtemisComponentType*) componentType toEntity:(ArtemisEntity*) entity;
 -(void) removeComponent:(ArtemisComponentType*) componentType fromEntity:(ArtemisEntity*) entity;

@@ -15,7 +15,7 @@
 
 +(ArtemisComponentMapper*) componentMapperForType:(Class) componentClass inWorld:(ArtemisWorld*) world
 {
-	ArtemisComponentMapper* cm = [[ArtemisComponentMapper new] autorelease];
+	ArtemisComponentMapper* cm = [[self new] autorelease];
 	
 	cm.type = [ArtemisComponentType getTypeFor:componentClass];
 	cm.components = [world.componentManager getComponentsByType:cm.type];
@@ -24,12 +24,12 @@
 	return cm;
 }
 
--(NSObject*) get:(ArtemisEntity*) entity
+-(id) get:(ArtemisEntity*) entity
 {
 	return [self.components get: entity.Id];
 }
 
--(NSObject*) getSafe:(ArtemisEntity*) entity
+-(id) getSafe:(ArtemisEntity*) entity
 {
 	if( [self.components isIndexWithinBounds: entity.Id] )
 	{

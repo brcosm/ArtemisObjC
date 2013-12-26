@@ -10,10 +10,10 @@
 typedef void (^Performer)(NSObject<ArtemisEntityObserver>* observer, ArtemisEntity* entity);
 
 @interface ArtemisComponentMapperInitHelper : NSObject
-+(void) configTarget:(NSObject*) target inWorld:(ArtemisWorld*) world;
++(void) configTarget:(id) target inWorld:(ArtemisWorld*) world;
 @end
 @implementation ArtemisComponentMapperInitHelper
-+(void)configTarget:(NSObject *)target inWorld:(ArtemisWorld *)world
++(void)configTarget:(id)target inWorld:(ArtemisWorld *)world
 {
 	NSLog(@"IMPOSSIBLE IN OBJECTIVE C: Annotations are a Java-language exclusive feature");
 }

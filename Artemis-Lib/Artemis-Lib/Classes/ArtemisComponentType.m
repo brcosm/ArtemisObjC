@@ -37,7 +37,7 @@ static NSMutableDictionary* componentTypes;
 	
 	if (type == nil)
 	{
-		type = [[[ArtemisComponentType alloc] initWithType:c] autorelease];
+		type = [[[self alloc] initWithType:c] autorelease];
 		[componentTypes setObject:type forKey:(id<NSCopying>)c]; // ObjC: looks wrong but IS OFFICIALLY legal and correct (ask Apple!)
 	}
 	

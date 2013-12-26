@@ -9,9 +9,9 @@
 
 @implementation ArtemisBitSet
 
-+(ArtemisBitSet *)bitSet
++(instancetype)bitSet
 {
-	ArtemisBitSet* newValue = [[[ArtemisBitSet alloc] initWithCapacity:32] autorelease];
+	ArtemisBitSet* newValue = [[self new] autorelease];
 	
 	return newValue;
 }
