@@ -17,7 +17,7 @@
 @property(nonatomic) BOOL isPassive, isDummy;
 @property(nonatomic,retain) ArtemisBag* actives;
 
-+(instancetype) entitySystemWithAspect:(ArtemisAspect*) aspect;
++(ArtemisEntitySystem*) entitySystemWithAspect:(ArtemisAspect*) aspect;
 
 /** Objc: needed for subclasses, java doesnt have this problem */
 - (id)initWithAspect:(ArtemisAspect*) aspect;
@@ -27,7 +27,7 @@
 -(void) process;
 
 -(BOOL) checkProcessing;
--(void) processEntities:(id<ArtemisImmutableBag>) entities;
+-(void) processEntities:(NSObject<ArtemisImmutableBag>*) entities;
 
 -(void) initialize;
 -(void) inserted:(ArtemisEntity*) entity;

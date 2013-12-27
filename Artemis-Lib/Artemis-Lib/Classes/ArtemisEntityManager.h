@@ -10,7 +10,7 @@
 @interface ArtemisEntityManager : ArtemisManager
 
 /** ObjC: safer to add + methods for constrcutors */
-+(instancetype) entityManager;
++(ArtemisEntityManager*) entityManager;
 
 -(ArtemisEntity*) createEntityInstance;
 

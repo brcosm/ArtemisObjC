@@ -9,8 +9,8 @@
 
 +(ArtemisComponentMapper*) componentMapperForType:(Class) componentClass inWorld:(ArtemisWorld*) world;
 
--(id) get:(ArtemisEntity*) entity;
--(id) getSafe:(ArtemisEntity*) entity;
+-(NSObject*) get:(ArtemisEntity*) entity;
+-(NSObject*) getSafe:(ArtemisEntity*) entity;
 -(BOOL) has:(ArtemisEntity*) entity;
 
 @end

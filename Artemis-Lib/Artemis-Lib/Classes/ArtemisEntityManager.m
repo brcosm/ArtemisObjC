@@ -49,9 +49,9 @@
 
 @implementation ArtemisEntityManager
 
-+(instancetype)entityManager
++(ArtemisEntityManager *)entityManager
 {
-	ArtemisEntityManager* newValue = [[self new] autorelease];
+	ArtemisEntityManager* newValue = [[ArtemisEntityManager new] autorelease];
 	
 	return newValue;
 }

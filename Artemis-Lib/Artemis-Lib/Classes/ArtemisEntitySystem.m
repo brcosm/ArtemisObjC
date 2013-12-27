@@ -42,9 +42,9 @@ static NSMutableDictionary* indices;
 
 @implementation ArtemisEntitySystem
 
-+(instancetype)entitySystemWithAspect:(ArtemisAspect *)aspect
++(ArtemisEntitySystem *)entitySystemWithAspect:(ArtemisAspect *)aspect
 {
-	ArtemisEntitySystem* newValue = [[[self alloc] initWithAspect:aspect] autorelease];
+	ArtemisEntitySystem* newValue = [[[ArtemisEntitySystem alloc] initWithAspect:aspect] autorelease];
 	
 	return newValue;
 }
@@ -85,7 +85,7 @@ static NSMutableDictionary* indices;
 -(void)begin { }
 -(void)end { }
 -(BOOL)checkProcessing { return FALSE; }
--(void)processEntities:(id<ArtemisImmutableBag>)entities { }
+-(void)processEntities:(NSObject<ArtemisImmutableBag> *)entities { }
 
 -(void) initialize { }
 -(void) inserted:(ArtemisEntity*) entity { }

@@ -2,9 +2,9 @@
 
 @implementation ArtemisEntityProcessingSystem
 
-+(instancetype)entityProcessingSystemWithAspect:(ArtemisAspect *)aspect
++(ArtemisEntityProcessingSystem *)entityProcessingSystemWithAspect:(ArtemisAspect *)aspect
 {
-	ArtemisEntityProcessingSystem* newValue = [[[self alloc] initWithAspect:aspect] autorelease];
+	ArtemisEntityProcessingSystem* newValue = [[[ArtemisEntityProcessingSystem alloc] initWithAspect:aspect] autorelease];
 	
 	return newValue;
 }

@@ -15,9 +15,9 @@
 
 @implementation ArtemisEntity
 
-+(instancetype)entityInWorld:(ArtemisWorld *)world withId:(int)newID
++(ArtemisEntity *)entityInWorld:(ArtemisWorld *)world withId:(int)newID
 {
-	ArtemisEntity* newValue = [[self new] autorelease];
+	ArtemisEntity* newValue = [[ArtemisEntity new] autorelease];
 	
 	newValue.world = world;
 	newValue.entityManager = world.entityManager;

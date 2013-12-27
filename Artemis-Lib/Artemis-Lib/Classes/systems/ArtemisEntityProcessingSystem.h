@@ -8,7 +8,7 @@
 
 @interface ArtemisEntityProcessingSystem : ArtemisEntitySystem
 
-+(instancetype) entityProcessingSystemWithAspect:(ArtemisAspect*) aspect;
++(ArtemisEntityProcessingSystem*) entityProcessingSystemWithAspect:(ArtemisAspect*) aspect;
 
 /** ObjC subclasses need to see this */
 - (id)initWithAspect:(ArtemisAspect*) aspect;

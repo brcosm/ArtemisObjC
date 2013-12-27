@@ -7,7 +7,7 @@
 
 @protocol ArtemisImmutableBag <NSObject>
 
--(id) get:(int) index;
+-(NSObject*) get:(int) index;
 
 -(int)size;
 

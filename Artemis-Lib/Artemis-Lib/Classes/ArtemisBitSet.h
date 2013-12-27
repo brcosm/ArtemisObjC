@@ -5,7 +5,7 @@
 
 @interface ArtemisBitSet : NSObject
 
-+(instancetype) bitSet;
++(ArtemisBitSet*) bitSet;
 
 -(void) clear;
 -(void) clear:(CFIndex) index;
